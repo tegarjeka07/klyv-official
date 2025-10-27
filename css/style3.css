@@ -1,0 +1,346 @@
+:root {
+  --primary: #DB1802;
+  --bg: #E6E6E6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: var(--bg);
+  color: black;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 7%;
+  background-color: var(--bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: black;
+}
+
+.navbar .navbar-logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-top: 2px;
+}
+
+.navbar .navbar-nav a {
+  color: black;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 0 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: black;
+  margin-left: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+/* Default hide hamburger di layar besar */
+#hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
+/* NAVBAR */
+
+
+/* SECTION */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 720px; /* tinggi dasar mengikuti ukuran asli */
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: calc(720 / 1920 * 100%); /* menjaga rasio 1920:720 */
+  background-image: url('img/KLYVmobile.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* gambar mengecil tapi tidak membesar */
+}
+
+/* konten di tengah */
+.hero .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.hero .content h1 {
+  font-size: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: 0 2px 8px rgba(1,1,3,.5);
+  margin: 0;
+}
+
+/* SECTION */
+
+
+/* お問合せbtn */
+
+.center-btn {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Tombol DM */
+.dm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary); /* pakai warna utama situs kamu */
+  color: #fff;
+  padding: 0.9rem 1.6rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dm-btn:hover {
+  background-color: #b31200; /* warna hover lebih gelap */
+  transform: translateY(-2px);
+}
+
+/* お問合せbtn */
+
+
+/* Footer */
+
+footer {
+  background-color: #000;
+  text-align: center;
+  padding: 1.3rem 0 3rem;
+  margin-top: 1rem;
+}
+
+footer h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.3rem;
+  color: #fff;
+}
+
+footer .social {
+ padding: 1.3rem 0;
+}
+
+footer .socials a {
+  color: white;
+  margin: 1.3rem;
+}
+
+footer .socials a:hover {
+  color: #DB1802;
+}
+
+footer .privacy-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #ddd;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+footer .privacy-link:hover {
+  color: var(--primary);
+}
+
+footer .credit {
+  padding: 0.7rem;
+  text-align: center;
+  font-weight: 120;
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+footer .credit p  {
+  text-align: center;
+  font-weight: 120;
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+footer p {
+  text-align: center;
+  font-weight: 140;
+  font-size: 0.7rem;
+  color: #fff;
+}
+
+footer p span, .credit p span {
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.6rem;
+  color: #fff;
+}
+
+footer .credit p, .credit p span {
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+/* Footer */
+
+
+/* Media Queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 758px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #111;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .navbar-nav a {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .navbar .navbar-nav a {
+    color: white;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover:after {
+    transform: scaleX(0.2);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 84px;            /* kira2 tinggi navbar HP, sesuaikan */
+  }
+}
+
+/* Navbar (contoh), pastikan lebih tinggi dari hero */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+}
+
+/* Dorong hero ke bawah setinggi navbar + safe area iOS */
+.hero {
+  margin-top: calc(var(--nav-h) + env(safe-area-inset-top));
+}
+
+/* Kalau pakai anchor #hero, biar scroll tidak ketutup navbar */
+#hero { 
+  scroll-margin-top: calc(var(--nav-h) + env(safe-area-inset-top));
+}
+
+
+
+
+
+

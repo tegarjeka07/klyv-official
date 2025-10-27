@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KLYV OFFICIAL WEBSITE</title>
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- my style -->
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar"> 
+    <a href="#" class="navbar-logo"><img src="img/logo.png" alt="">OFFICIAL WEBSITE</a> 
+  </nav> 
+  <section class="hero-slideshow">
+  <div class="slide active" style="background-image: url('img/bg_slide1.jpg');">
+    <div class="content">
+      <h1>いい<span>思い出を</span><br>とりませんか</h1>
+      <p>独自の編集を組み合わせた高品質の写真を提供したい</p>
+      <a href="studiopage.html" class="cta">詳しく見る</a>
+    </div>
+  </div>
+
+  <div class="slide" style="background-image: url('img/bg_slide2.jpg');">
+    <div class="content">
+      <h1>新しい<span>iPhone</span>を<br>ゲットしよう</h1>
+      <p>Appleを分割払いで販売します</p>
+      <a href="mobilepage.html" class="cta">詳しく見る</a>
+    </div>
+  </div>
+
+  <button class="nav prev"><i data-feather="chevrons-left"></i></button>
+  <button class="nav next"><i data-feather="chevrons-right"></i></button>
+</section>
+
+
+<section id="about" class="about">
+  <h2>ご挨拶</h2>
+  <p>KLYV STUDIOとは、写真とは単なる記録ではなく、一枚一枚に物語と想いが込められた「人生の瞬間」だと考えております。
+お客様の個性や魅力を最大限に引き出すため、自然な光や空気感を大切にし、温かみのあるエレガントなスタイルで撮影を行っております。
+撮影の際は、リラックスした雰囲気をつくり、お客様がカメラの前で自然体でいられるよう丁寧にコミュニケーションを重ねてまいります。<br>私の目指すのは、美しいだけの写真ではなく、お客様にとって心から意味のある一枚をお届けすることです。
+写真を見るたびに、その瞬間の感情や空気がよみがえるような、温もりのある作品づくりを大切にしております。
+これからも一人ひとりのお客様に寄り添い、人生の大切な節目や想いを形に残すお手伝いをしてまいります。</p>
+<p>KLYV MOBILEとはお客様のライフスタイルに寄り添い、最新のApple製品をより身近に感じていただけるよう、私たちは最適なご提案をいたします。
+ 当店では、iPhone・MacBook・iPad・Apple Watchなどの正規Apple製品を豊富に取り揃えており、すべて安心のメーカー保証付きです。さらに、お客様のご予算やご都合に合わせた柔軟な分割払いプランをご用意しております。
+お申し込みからご購入までのプロセスは簡単かつ迅速。経験豊富なスタッフが丁寧にサポートし、初めての方でも安心してご利用いただけます。
+ [店舗名]は「信頼」「品質」「利便性」を大切にし、お客様にとって最高のショッピング体験を提供いたします。憧れのApple製品を、今すぐ手の届く現実に</p>
+</section>
+
+  <!-- icons -->
+ <script>
+  const slides = document.querySelectorAll('.hero-slideshow .slide');
+  const nextBtn = document.querySelector('.hero-slideshow .next');
+  const prevBtn = document.querySelector('.hero-slideshow .prev');
+  const slideshow = document.querySelector('.hero-slideshow');
+
+  let index = 0;
+  let interval = null;
+  const SLIDE_DURATION = 9000; // 5 detik stabil
+
+  function showSlide(i) {
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('active', idx === i);
+    });
+  }
+
+  function showNextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function showPrevSlide() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  function startSlideshow() {
+    stopSlideshow();
+    interval = setInterval(showNextSlide, SLIDE_DURATION);
+  }
+
+  function stopSlideshow() {
+    if (interval) {
+      clearInterval(interval);
+      interval = null;
+    }
+  }
+
+  // Tombol navigasi manual
+  nextBtn.addEventListener('click', () => {
+    showNextSlide();
+    startSlideshow(); // restart waktu dari nol
+  });
+
+  prevBtn.addEventListener('click', () => {
+    showPrevSlide();
+    startSlideshow();
+  });
+
+  // Hover pause
+  slideshow.addEventListener('mouseenter', stopSlideshow);
+  slideshow.addEventListener('mouseleave', startSlideshow);
+
+  // Jalankan otomatis saat load
+  showSlide(index);
+  startSlideshow();
+</script>
+
+
+
+  <!-- Java script -->
+  <script src="js/script.js"></script>
+</body>
+
+<footer>
+  <h3>会社概要</h3>
+  <div class="socials">
+    <a href="https://www.instagram.com/klyvjp/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i data-feather="instagram" aria-hidden="true"></i></a>
+  </div>
+  <p><span>対応エリア</span> 金沢・東京・大阪</p>
+  <p><span>定休日</span> やすみ不定休</p>
+  <a href="privacy.html" class="privacy-link">Privacy and Policy</a>
+  <div class="credit">
+    <p>©2025 All right reserved  |  <span>KLYV</span>  Official</p>
+  </div>
+</footer>
+
+ <script>
+      feather.replace();
+  </script>
+</html>
